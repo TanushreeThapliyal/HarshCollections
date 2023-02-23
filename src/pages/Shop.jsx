@@ -19,6 +19,7 @@ import MangalSutras from '../components/Categories/MangalSutras';
 import FingerRings from '../components/Categories/FingerRings';
 import Earrings from '../components/Categories/Earrings';
 import Naths from '../components/Categories/Naths';
+import {useNavigate} from 'react-router-dom';
 
 import { Col,Row,Container } from 'reactstrap';
 
@@ -26,6 +27,8 @@ import { Col,Row,Container } from 'reactstrap';
 
 const Shop = () => {
 
+
+  
   // const[productsData,setProductsData]=useState(" ")
 
 
@@ -87,75 +90,93 @@ const Shop = () => {
   // };
 
 
+  // const merged = [...productData, ...bridalsData];
+
+const fetchPost = async (collectionName) => {
+
+    await getDocs(collection(db, collectionName))
+      .then((querySnapshot) => {
+        const newData = querySnapshot.docs
+          .map((doc) => ({ ...doc.data(), id: doc.id }));
+        // setProductsData(newData);
+        return newData
+        // console.log(productsData, newData);
+      })
+
+  }
+
+  useEffect(() => {
+  const banglesData= fetchPost("bangles");
+  console.log("bangles",banglesData);
+  }, [])
+
+console.log(fetchPost("bangles"))
+console.log("hii");
 
 
 return( 
 <>
-<div className="container ">
+<div className="container">
 
-                <div className="row justify-content-center ">
-                <div className="col-12 col-md-6 col-md-4" >
-                <h2> Bangles</h2>
-                <Bangles/>
+ <div className="row justify-content-center ">
+ <div className="col-12 col-md-6 col-md-4" >
+  <Bangles/>
+  </div>
 </div>
-</div>
+
+
+
+
 
 
 <div className="row justify-content-center ">     
- <div className="col-12 col-md-6 col-md-4" >
-<h2> Bridals</h2>
+ <div className="col-12 col-md-6 col-md-4" > 
 <Bridals/>
 </div>
 </div>
 
 <div className="row justify-content-center ">                    
 <div className="col-12 col-md-6 col-md-4" >
-<h2> Customised</h2>
 <Customised/>
 </div>
 </div>
 
 <div className="row justify-content-center ">                    
 <div className="col-12 col-md-6 col-md-4" >
-<h2> Earrings</h2>
 <Earrings/>
 </div>
 </div>
 
 <div className="row justify-content-center ">                    
 <div className="col-12 col-md-6 col-md-4" >
-<h2> FingerRings</h2>
 <FingerRings/>
 </div>
 </div>
 
 <div className="row justify-content-center ">                    
 <div className="col-12 col-md-6 col-md-4" >
-<h2> MangalSutras</h2>
 <MangalSutras/>
 </div>
 </div>
 
 <div className="row justify-content-center ">                    
 <div className="col-12 col-md-6 col-md-4" >
-<h2> Mangtika</h2>
 <Mangtika/>
 </div>
 </div>
 
 <div className="row justify-content-center ">                    
 <div className="col-12 col-md-6 col-md-4" >
-<h2> Naths</h2>
 <Naths/>
 </div>
 </div>
 
 <div className="row justify-content-center ">                    
 <div className="col-12 col-md-6 col-md-4" >
-<h2> Nacklaces</h2>
 <Necklaces/>
 </div>
 </div>
+
 
 </div>
 

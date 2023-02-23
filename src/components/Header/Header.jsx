@@ -48,7 +48,7 @@ const nav__links=[
 
 const Header = () => {
             const headerRef= useRef(null);
-            const totalQuantity=useSelector(state=>state.cart.totalQuantity);
+            const totalQuantity=useSelector((state)=>state.cart.totalQuantity);
             const profileActionRef=useRef(null)
 
                 const menuRef=useRef(null)
@@ -90,7 +90,7 @@ const Header = () => {
            
 
             
-            const menuToggle=()=>menuRef.current.classList.toggle('nav__active');
+            const menuToggle=()=>menuRef.current.classList.toggle("nav__active");
 
             const navigateToCart=()=>{
                 navigate("/cart");
@@ -116,6 +116,9 @@ const Header = () => {
                 
                    <motion.ul className="menu">
                         {
+                            
+                            
+
                             nav__links.map((item,index)=>(
                                 <li className='nav__item' key={index}>
                                 <NavLink to={item.path} className={(navClass)=>
@@ -161,24 +164,12 @@ const Header = () => {
                             <span onClick={logout}> Logout</span>
                         ):(
                             <div className='f-flex align-items-center justify-content-center flex-column'>
-                            <Link
-                        className="text-decoration-none text-black"
-                        to="/signup"
-                      >
-                        SignUp
-                      </Link>
-                      <Link
-                        className="text-decoration-none text-black"
-                        to="/login"
-                      >
-                        Login
-                      </Link>
-                      <Link
-                        className="text-decoration-none text-black"
-                        to="/login"
-                      >
-                        Dashboard
-                      </Link>
+                            <Link className="text-decoration-none text-black" to="/signup">  SignUp  </Link>
+                            <br></br>
+                     
+                      <Link  className="text-decoration-none text-black" to="/login">   Login </Link>
+                     
+                      <Link    className="text-decoration-none text-black" to="/login">Dashboard </Link>
                         
                         </div>
                     ) }

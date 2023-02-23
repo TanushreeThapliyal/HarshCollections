@@ -8,6 +8,10 @@ import {
 } from "firebase/firestore";
 import Helmet from '../Helmet/Helmet'; 
 import { db } from '../../firebase.config';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
+
 
 const Bridals = () => {
 
@@ -37,6 +41,12 @@ useEffect(()=>{
   
     return (
     <Helmet title='Bridals'>
+
+<div className='breadcumb_area'>
+  <div className='heading'>
+    <h2> Bridals</h2>
+  </div>
+ </div>
     
     <div className='Products_display'>
                               <div className='container'>
@@ -45,11 +55,10 @@ useEffect(()=>{
                    <div className='product-card' key={bridalsData.id}>
   
                           <div className='product-img'>
-                                  <img src={bridalsData.img}/>
-                          </div>        
+                          <Link to={`/shop/${bridalsData.id}`}><motion.img whileHover={{scale: 0.9}} src={bridalsData.img} alt='' /></Link>                          </div>        
   
-                                  <div className='product-name'>
-  
+                          <div className='product-name'>
+                                <p> {bridalsData.name}</p>
                            </div>
                            </div>
                           ))
