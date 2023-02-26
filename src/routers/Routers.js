@@ -26,6 +26,8 @@ import Naths from '../components/Categories/Naths';
 import Necklaces from '../components/Categories/Necklaces';
 import Reviews from '../pages/Reviews';
 import Contact from '../pages/Contact';
+import ProductCard from '../pages/ProductCard';
+import Videos from '../pages/Videos';
 
 
 const Routers = () => {
@@ -51,6 +53,7 @@ const Routers = () => {
 
     <Route path='reviews' element={<Reviews/>}/>
     <Route path='contact' element={<Contact/>}/>
+    <Route path='videos' element={<Videos/>}/>
     
     
 
