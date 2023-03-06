@@ -107,8 +107,12 @@ const Header = () => {
         <Row>
             <div className='nav__wrapper'>
                 <div className='logo'>
-                    <img src={Logo} alt="logo"/>
+                 <Link to = "/home">
+                  <img src={Logo} alt="logo"/> 
+                  </Link>
+                  <Link to = "/home">
                     <h1> Harsh Collections</h1>
+                    </Link>
                 </div>
 
                 
@@ -161,7 +165,17 @@ const Header = () => {
                      >
                      {
                         currentUser?(
-                            <span onClick={logout}> Logout</span>
+                            <ul>
+                      <li onClick={logout}>Logout</li>
+                      <li>
+                        <Link
+                          className="text-decoration-none text-black"
+                          to="/dashboard"
+                        >
+                          Dashboard
+                        </Link>
+                      </li>
+                    </ul>
                         ):(
                             <div className='f-flex align-items-center justify-content-center flex-column'>
                             <Link className="text-decoration-none text-black" to="/signup">  SignUp  </Link>
